@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h2>Digital Clock</h2>
+        <input type="text" id="clock" readonly>
+    </div>
+    
+    <script>
+        function updateClock(){
+            let date = new Date();
+            let hours = date.getHours();
+            let minutes = date.getMinutes();
+            let seconds = date.getSeconds();
+            if (hours > 12) {
+                hours = hours - 12;
+                document.getElementById("clock").value = hours + ":" + minutes + ":" + seconds + "PM"
+            }
+            else{
+                hours = hours;
+                document.getElementById("clock").value = hours + ":" + minutes + ":" + seconds + "AM"
+            }
+            document.getElementById("clock").value = hours + ":" + minutes + ":" + seconds
+        }
+        setInterval(updateClock, 1000)
+    </script>
+</body>
+</html>
